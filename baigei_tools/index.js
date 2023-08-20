@@ -34,10 +34,28 @@ function htmlEscape(htmlStr) {
                 return match;
         }
     });
-
 }
+//还原HTML转义后的字符
+function htmlUnescape(str) {
+    return str.replace(/&lt;|&gt;|&quot;|&amp;/g, match => {
+        switch (match) {
+            case '&lt;':
+                return '<';
+            case '&gt;':
+                return '>';
+            case '&quot;':
+                return '"';
+            case '&amp;':
+                return '&';
+            default:
+                return match;
+        }
+    });
+}
+
 //向外暴露需要的成员
 module.exports = {
     dateFormat,
-    htmlEscape
+    htmlEscape,
+    htmlUnescape
 }
