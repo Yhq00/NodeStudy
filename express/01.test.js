@@ -11,6 +11,15 @@ app.post('/user', (req, res) => {
     //调用express提供的res.send方法向客户端响应一个文本字符串
     res.send('请求成功')
 })
+
+//测试url
+app.get('/', (req, res) => {
+    //通过req.query可以获取到客户端发送过来的查询参数
+    //注意：默认情况下，req.query是一个空对象
+    console.log(req.query);
+    res.send(req.query)
+})
+
 //3.启动web服务器
 app.listen(8080, () => {
     console.log('服务器启动成功,运行在http://127.0.0.1')
