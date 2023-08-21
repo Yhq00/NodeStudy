@@ -20,6 +20,8 @@ app.get('/', (req, res) => {
     res.send(req.query)
 })
 //注意这里的id是一个动态参数
+//http://127.0.0.1:8080/user/1 返回{id:1},id是请求时取名的
+//多个动态参数'user/:id/:name'
 app.get('/user/:id', (req, res) => {
     //通过req.params是动态匹配到的url参数
     //注意：默认情况下，req.params是一个空对象
