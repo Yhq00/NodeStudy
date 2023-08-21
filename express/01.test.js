@@ -19,6 +19,15 @@ app.get('/', (req, res) => {
     console.log(req.query);
     res.send(req.query)
 })
+//注意这里的id是一个动态参数
+app.get('/user/:id', (req, res) => {
+    //通过req.params是动态匹配到的url参数
+    //注意：默认情况下，req.params是一个空对象
+    console.log(req.params);
+    res.send(req.params)
+})
+
+
 
 //3.启动web服务器
 app.listen(8080, () => {
